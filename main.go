@@ -10,9 +10,8 @@ func main() {
 	b.SetMode("111", balance.MODE_RR)
 	b.Put("111", "11111")
 	b.Put("111", "11111111111")
-	nog.SL.Debug(id1, id2)
 
-	b.Push("222", "22222222")
+	b.Put("222", "22222222")
 
 	//b.SetMode("222", balance.MODE_RR)
 	//b.Push("22222")

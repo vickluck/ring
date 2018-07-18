@@ -31,7 +31,7 @@ func (b balances) SetMode(key string, m mode) {
 	b[key] = m.pattern()
 }
 
-func (b balances) Put(key string, value interface{}) int {
+func (b balances) Put(key string, value interface{}) {
 	if v, ok := b[key]; ok {
 		v.add(value)
 	} else {
