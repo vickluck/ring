@@ -1,6 +1,6 @@
 package balance
 
-type RoundRobin struct {
+type roundRobin struct {
 	values []interface{}
 	cursor int // == index
 
@@ -8,11 +8,11 @@ type RoundRobin struct {
 	delIndex []int
 }
 
-func (rr *RoundRobin) add(v interface{}) {
+func (rr *roundRobin) add(v interface{}) {
 	rr.values = append(rr.values, v)
 }
 
-func (rr *RoundRobin) get() interface{} {
+func (rr *roundRobin) get() interface{} {
 	p := rr.values[rr.cursor]
 	rr.cursor = rr.cursor + 1
 
@@ -23,6 +23,6 @@ func (rr *RoundRobin) get() interface{} {
 }
 
 // Len
-func (rr *RoundRobin) len() int {
+func (rr *roundRobin) len() int {
 	return len(rr.values)
 }

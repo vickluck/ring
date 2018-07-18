@@ -6,16 +6,16 @@ type balancer interface {
 	len() int
 }
 
-type mode uint16
+type Mode uint16
 
 const (
-	MODE_RR mode = iota
+	MODE_RR Mode = iota // 0
 )
 
-func (m mode) pattern() balancer {
+func (m Mode) pattern() balancer {
 	switch m {
 	case MODE_RR:
-		return &RoundRobin{}
+		return &roundRobin{}
 	default:
 		return nil
 	}
@@ -23,11 +23,15 @@ func (m mode) pattern() balancer {
 
 type balances map[string]balancer
 
-func New() balances {
-	return make(balances)
+type Struct struct {
+	balances
 }
 
-func (b balances) SetMode(key string, m mode) {
+func New() *Struct {
+	return &Struct{}
+}
+
+func (b balances) SetMode(key string, m Mode) {
 	b[key] = m.pattern()
 }
 
