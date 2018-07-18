@@ -4,6 +4,7 @@ import (
 	"net"
 
 	"github.com/tnngo/nog"
+	"github.com/tnngo/ring/server/proto/consumer"
 	"github.com/tnngo/ring/server/proto/provider"
 	"google.golang.org/grpc"
 )
@@ -32,5 +33,6 @@ func ListenTCP() {
 
 	s := grpc.NewServer()
 	provider.RegisterProviderServer(s, &Handle{})
+	consumer.RegisterConsumerServer(s, &Handle{})
 	s.Serve(l)
 }
