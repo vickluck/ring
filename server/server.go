@@ -18,7 +18,7 @@ func New() *RingServer {
 }
 
 func ListenTCP() {
-	tcpaddr, err := net.ResolveTCPAddr("tcp", ":1500")
+	tcpaddr, err := net.ResolveTCPAddr("tcp", ":8718")
 	if err != nil {
 		nog.SL.Error(err)
 		return
