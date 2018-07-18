@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package consumer;
+
+service Consumer {
+	rpc Detect()
+}
+
+message Request {
+}
+
+message Response {
+}
